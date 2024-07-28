@@ -1,5 +1,5 @@
 import axios from "axios";
-import { loginFailure, loginStart, loginSuccess } from "./AuthActions.js";
+import { loginFailure, loginStart, loginSuccess } from "./AuthActions.jsx";
 
 export const login = async (user, dispatch) => {
   dispatch(loginStart());

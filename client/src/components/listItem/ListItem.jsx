@@ -17,10 +17,10 @@ export default function ListItem({ index, item }) {
     const getMovie = async () => {
       try {
         console.log("Fetching movie for item:", item);
-        const res = await axios.get("/movies/find/" + item, {
+        const res = await axios.get("http://localhost:8800/api/movies/find/" + item, {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ODY5OWNjNmM4ZThhNjQ5YjdlNzQ2ZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTcyMDE5NjgzMSwiZXhwIjoxNzIwNjI4ODMxfQ.JoPuPKnI1MYogsWfZ0GHwXzUxJ8UhQc1LlDdLjTnktw",
+              "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
           },
         });
         console.log("Movie data fetched:", res.data);
