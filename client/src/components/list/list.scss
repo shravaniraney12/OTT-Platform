@@ -1,0 +1,49 @@
+.list {
+  height: 200px;
+  width: 100%;
+  margin-top: 20px;
+
+  .listTitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 50px;
+  }
+
+  .wrapper {
+    position: relative;
+    height: 100%; // Ensure wrapper takes full height
+    display: flex;
+    align-items: center;// Centering the arrows vertically within the container
+    .sliderArrow {
+      width: 50px;
+      height: 200px;
+      background-color: rgb(22, 22, 22, 0.85);
+      color: white;
+      position: absolute;
+      z-index: 99;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      cursor: pointer;
+
+      &.left {
+        left: 0;
+      }
+
+      &.right {
+        right: 0;
+      }
+    }
+    .container {
+      height: 150px;
+      margin-left: 50px;
+      display: flex;
+      flex-direction: row;
+      margin-top: 10px;
+      width: max-content;
+      transform: translateX(0px);
+      transition: all 1s ease;
+    }
+  }
+}
