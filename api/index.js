@@ -20,8 +20,16 @@ mongoose
     console.log("Error connecting to mongo cluster", error);
   });
 
-app.use(cors());
+app.use(cors(
+  {
+    origin: [https://ott-platform-api.vercel.app/],
+    methods: ["POST", "GET"],
+    credentials: true
+));
 app.use(express.json());
+app.get("/", (req, res)=>{
+  res.join("Hello");
+})
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/movies", movieRoute);
