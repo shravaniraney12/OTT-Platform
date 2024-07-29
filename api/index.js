@@ -27,9 +27,7 @@ app.use(cors(
     credentials: true
 ));
 app.use(express.json());
-app.get("/", (req, res)=>{
-  res.join("Hello");
-})
+app.get("/", (req, res) => res.send("Express on Vercel"));
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/movies", movieRoute);
