@@ -21,13 +21,14 @@ mongoose
   });
 
 app.use(cors(
-  {
-    origin: [https://ott-platform-api.vercel.app/],
-    methods: ["POST", "GET"],
-    credentials: true
-));
-app.use(express.json());
-app.get("/", (req, res) => res.send("Express on Vercel"));
+    {
+      origin: ["https://ott-platform-api.vercel.app/"],
+      methods: ["POST", "GET"],
+      credentials: true
+    }
+  ));
+  app.use(express.json());
+  app.get("/", (req, res) => res.send("Express on Vercel"));
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/movies", movieRoute);
