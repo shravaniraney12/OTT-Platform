@@ -22,9 +22,10 @@ mongoose
 
 app.use(cors(
   {
-    origin: [https://ott-platform-api.vercel.app/],
+    origin: ["https://ott-platform-api.vercel.app/"],
     methods: ["POST", "GET"],
     credentials: true
+  }
 ));
 app.use(express.json());
 app.get("/", (req, res) => res.send("Express on Vercel"));
