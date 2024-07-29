@@ -17,19 +17,17 @@ mongoose
     console.log("Successfully connected to mongo cluster");
   })
   .catch((error) => {
-    console.log("Hey user there is this error ", error);
+    console.log("Error connecting to mongo cluster", error);
   });
 
-
 app.use(cors());
-
 app.use(express.json());
-
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/movies", movieRoute);
 app.use("/api/lists", listRoute);
 
-app.listen(8800, () => {
-  console.log("Backend server is running at 8800");
+const PORT = process.env.PORT || 8800;
+app.listen(PORT, () => {
+  console.log(`Backend server is running at ${PORT}`);
 });

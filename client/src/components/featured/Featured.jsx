@@ -1,10 +1,12 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom"; // Import useHistory
 import "./featured.scss";
 
 export default function Featured({ type, setGenre }) {
   const [content, setContent] = useState({});
+  const history = useHistory(); // Initialize useHistory
 
   useEffect(() => {
     const getRandomContent = async () => {
@@ -22,6 +24,13 @@ export default function Featured({ type, setGenre }) {
     };
     getRandomContent();
   }, [type]);
+
+  const handlePlay = () => {
+    history.push({
+      pathname: "/watch",
+      movie: content,
+    });
+  };
 
   console.log(content);
   return (
@@ -46,10 +55,10 @@ export default function Featured({ type, setGenre }) {
       )}
       <img src={content.img} alt="" />
       <div className="info">
-      <span className="title">{content.title}</span>
+        <span className="title">{content.title}</span>
         <span className="desc">{content.desc}</span>
         <div className="buttons">
-          <button className="play">
+          <button className="play" onClick={handlePlay}>
             <PlayArrow />
             <span>Play</span>
           </button>
