@@ -17,7 +17,7 @@ export default function ListItem({ index, item }) {
     const getMovie = async () => {
       try {
         console.log("Fetching movie for item:", item);
-        const res = await axios.get("https://ott-platform-api.onrender.com/movies/find/" + item, {
+        const res = await axios.get("http://localhost:8800/api/movies/find/" + item, {
           headers: {
             token:
               "Bearer "+JSON.parse(localStorage.getItem("user")).accessToken,
